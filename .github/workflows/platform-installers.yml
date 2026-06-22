@@ -1,0 +1,135 @@
+name: Platform Installers
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-smoke:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows installer
+            runner: windows-latest
+            platform: win32
+            build_script: electron:build:win
+            smoke_prefix: ''
+          - name: Linux installers
+            runner: ubuntu-24.04
+            platform: linux
+            build_script: electron:build:linux
+            smoke_prefix: 'xvfb-run -a'
+          - name: macOS installers
+            runner: macos-14
+            platform: darwin
+            build_script: electron:build:mac
+            smoke_prefix: ''
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install Linux smoke + OBS dependencies
+        if: matrix.platform == 'linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            xvfb \
+            libgtk-3-0 \
+            libnss3 \
+            libasound2t64 \
+            libxss1 \
+            libxtst6 \
+            libgbm1 \
+            libdrm2 \
+            libatk-bridge2.0-0 \
+            libxdamage1 \
+            libxrandr2 \
+            obs-studio \
+            libobs-dev
+
+      - name: Install VLC for Windows bundling
+        if: matrix.platform == 'win32'
+        shell: pwsh
+        run: choco install vlc -y --no-progress
+
+      - name: Install macOS build dependencies (SIMDE for ARM64)
+        if: matrix.platform == 'darwin'
+        shell: bash
+        run: brew install simde
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install native addon dependencies
+        run: cd native/addon && npm ci
+
+      - name: Prepare Windows VSS runtime
+        if: matrix.platform == 'win32'
+        shell: pwsh
+        run: ./native/prepare-obs-runtime.ps1
+
+      - name: Prepare Linux VSS runtime
+        if: matrix.platform == 'linux'
+        shell: bash
+        run: bash native/prepare-obs-runtime-linux.sh
+
+      - name: Prepare macOS VSS runtime
+        if: matrix.platform == 'darwin'
+        shell: bash
+        run: bash native/prepare-obs-runtime-macos.sh
+
+      - name: Build native VSS addon
+        run: npm run build:native
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build platform installer
+        run: npm run ${{ matrix.build_script }}
+
+      - name: Smoke test packaged app
+        shell: bash
+        env:
+          ELECTRON_DISABLE_SANDBOX: ${{ matrix.platform == 'linux' && '1' || '' }}
+        run: ${{ matrix.smoke_prefix }} node scripts/smoke-packaged-app.mjs --platform=${{ matrix.platform }}
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: vaultstudio-${{ matrix.platform }}-${{ github.ref_name }}
+          path: |
+            release/*.exe
+            release/*.dmg
+            release/*.zip
+            release/*.AppImage
+            release/*.deb
+          if-no-files-found: error
+
+      - name: Publish GitHub release assets
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/*.exe
+            release/*.dmg
+            release/*.zip
+            release/*.AppImage
+            release/*.deb

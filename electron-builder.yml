@@ -1,0 +1,66 @@
+appId: com.vaultstudio.app
+productName: VaultStudio
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - dist-electron/**/*
+extraResources:
+  # Native addon host + worker scripts (plain JS, cross-platform) and the
+  # default full-screen scenes used by IRL ingest setup. These exist on every
+  # platform after `npm run build`, so they stay in the common set.
+  - from: dist-electron/services/obs-addon-host.js
+    to: obs-addon/obs-addon-host.js
+  - from: dist-electron/services/stream-stats.js
+    to: obs-addon/stream-stats.js
+  - from: dist-electron/services/obs-worker.js
+    to: obs-addon/obs-worker.js
+  - from: resources/scene-defaults
+    to: scene-defaults
+win:
+  target: nsis
+  icon: build/icon.ico
+  # Windows-only native VSS engine: bundled libobs runtime + the compiled .node
+  # addon (a Windows PE DLL). Kept under `win` so macOS/Linux packaging does
+  # not fail on these missing binaries - platform extraResources merge with the
+  # common set above.
+  extraResources:
+    - from: native/obs-runtime
+      to: obs-runtime
+    - from: native/addon/build-v1/Release/vaultstudio-obs.node
+      to: obs-addon/vaultstudio-obs.node
+mac:
+  target:
+    - dmg
+    - zip
+  icon: build/icon.png
+  category: public.app-category.video
+  # macOS native VSS engine: this build is intentionally gated by
+  # scripts/assert-native-runtime.mjs so the app is only packaged when the
+  # macOS runtime and compiled addon are present.
+  extraResources:
+    - from: native/vss-runtime/darwin
+      to: vss-runtime/darwin
+    - from: native/addon/build-v1/Release/vaultstudio-obs.node
+      to: obs-addon/vaultstudio-obs.node
+linux:
+  target:
+    - AppImage
+    - deb
+  icon: build/icon.png
+  category: AudioVideo
+  maintainer: VaultStudio <vaultkeeperirl-design@users.noreply.github.com>
+  syncDesktopName: true
+  # Linux native VSS engine: this build is intentionally gated by
+  # scripts/assert-native-runtime.mjs so the app is only packaged when the
+  # Linux runtime and compiled addon are present.
+  extraResources:
+    - from: native/vss-runtime/linux
+      to: vss-runtime/linux
+    - from: native/addon/build-v1/Release/vaultstudio-obs.node
+      to: obs-addon/vaultstudio-obs.node
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  deleteAppDataOnUninstall: false

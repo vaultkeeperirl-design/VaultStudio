@@ -1,0 +1,42 @@
+export const tokens = {
+  colors: {
+    bg: '#0B0B0D',
+    panel: '#15161A',
+    panel2: '#1E2026',
+    gold: '#D6A23A',
+    darkGold: '#8C621D',
+    neonBlue: '#27A8FF',
+    text: '#F2F2F2',
+    muted: '#A6A6A6',
+    danger: '#FF3045',
+    live: '#FF0033',
+    twitch: '#9146FF',
+    kick: '#53FC18',
+    border: '#2A2C33',
+  },
+  spacing: {
+    xs: '4px',
+    sm: '8px',
+    md: '12px',
+    lg: '16px',
+    xl: '24px',
+  },
+  fontSize: {
+    xs: '11px',
+    sm: '12px',
+    md: '14px',
+    lg: '16px',
+    xl: '20px',
+    xxl: '28px',
+  },
+  borderRadius: {
+    sm: '4px',
+    md: '6px',
+    lg: '8px',
+  },
+  fontWeight: {
+    normal: 400,
+    medium: 500,
+    bold: 700,
+  },
+} as const;

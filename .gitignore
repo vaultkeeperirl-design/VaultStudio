@@ -1,0 +1,55 @@
+node_modules/
+dist/
+dist-electron/
+release/
+*.log
+*.tsbuildinfo
+NUL
+.agents/
+.claude/
+.codex/
+.smoke-user-data/
+.env
+.env.local
+
+# Pro keys - private key must never be committed
+keys/private.pem
+keys/private.pkcs8.pem
+keys/pro-pool.json
+keys/giveaway-keys.json
+generate-keys.js
+
+# Bundled OBS (large binaries)
+vendor/obs-studio/
+
+# Bundled OBS runtime (assembled by native/prepare-obs-runtime.ps1)
+native/obs-runtime/
+native/obs-runtime-*.zip
+native/vss-runtime/
+native/.cache/
+native/obs-deps/obs-studio.zip
+native/obs-deps/*.dll
+native/obs-deps/*.exp
+native/obs-deps/obs-exports.txt
+native/obs-deps/obs-fe-exports.txt
+
+# Native addon build output
+native/addon/build/
+native/addon/build-v1/
+native/addon/node_modules/
+native/addon/test/.obs-config*/
+native/addon/test/preview-frame.bmp
+native/build-obs/
+
+# Recompiled vlc-video plugin build artifacts (sources + prebuilt dll are kept)
+native/vlc-plugin/build/
+native/vlc-plugin/w32-pthreads.lib
+native/vlc-plugin/w32-pthreads.def
+native/vlc-plugin/w32-pthreads.exp
+native/vlc-plugin/pthreads-exports.txt
+native/.vlc-sdk-tmp/
+
+# Excluded from public repo (app-only scope)
+payments-worker/
+Vault Streaming Studio website/
+docs/superpowers/
