@@ -1,0 +1,34 @@
+name = "vaultstudio-payments"
+main = "src/index.js"
+compatibility_date = "2026-06-22"
+
+# --- Durable Object: serialized key inventory + issuance records ---
+[[durable_objects.bindings]]
+name = "KEY_ALLOCATOR"
+class_name = "KeyAllocator"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = [ "KeyAllocator" ]
+
+# --- Non-secret config (safe to commit) ---
+[vars]
+PAYPAL_ENV = "sandbox"            # "sandbox" while testing, "live" when ready
+PRICE_USD = "19.99"
+# The PayPal REST client-id is public (also embedded in the website). Safe here.
+PAYPAL_CLIENT_ID = "Af82nHM-4C1QPDimx-cNKjZKaHZeL3OWbAn99bJSkmg8I_oZ4msqPVUUA203Hs6iWwn3u6PXDDAvbqkq"
+# Sandbox/local testing until the site has a hosted domain. Narrow this before live payments.
+ALLOWED_ORIGIN = "*"
+# Set this to the hosted product site before switching update downloads live.
+# Example: SITE_URL = "https://vaultkeeper.live"
+# Verified Resend sender, e.g. "VaultStudio <keys@yourdomain.com>"
+EMAIL_FROM = "VaultStudio <keys@REPLACE_WITH_YOUR_DOMAIN>"
+# Optional: get alerted if the key pool runs dry mid-sale.
+ADMIN_EMAIL = "vaultkeeperirl@gmail.com"
+
+# --- Secrets (DO NOT put here — set via `wrangler secret put NAME`) ---
+#   PAYPAL_SECRET        (PayPal REST app secret)
+#   PAYPAL_WEBHOOK_ID    (from the webhook you register in the PayPal dashboard)
+#   RESEND_API_KEY       (Resend API key)
+#   ADMIN_UPLOAD_TOKEN   (bearer token for /admin/upload-pool)
+#   LICENSE_PRIVATE_KEY_PEM (optional PKCS#8 PEM; enables never-empty auto-signing)

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Buy VaultStudio Lifetime Pro, a one-time $19.99 USD upgrade for unlimited stream targets and dashboard platforms. Your key is shown instantly after checkout." />
+    <meta name="theme-color" content="#0B0B0D" />
+    <title>Buy VaultStudio Lifetime Pro</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .checkout {
+        position: relative;
+        z-index: 1;
+        max-width: 560px;
+        margin: 0 auto;
+        padding: 128px clamp(20px, 5vw, 40px) 96px;
+      }
+      .checkout-card {
+        padding: clamp(24px, 5vw, 40px);
+        border: 1px solid rgba(214, 162, 58, 0.34);
+        border-radius: var(--radius-lg);
+        background:
+          linear-gradient(135deg, rgba(214, 162, 58, 0.16), rgba(39, 168, 255, 0.06)),
+          rgba(21, 22, 26, 0.9);
+        box-shadow: 0 42px 100px rgba(0, 0, 0, 0.4);
+      }
+      .checkout-card h1 {
+        margin: 0;
+        color: var(--gold);
+        font-size: clamp(26px, 4vw, 34px);
+      }
+      .price-line {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        margin: 14px 0 4px;
+      }
+      .price-line strong { font-size: 40px; color: var(--text); line-height: 1; }
+      .price-line span { color: var(--muted); font-weight: 600; }
+      .checkout-card p { color: rgba(242, 242, 242, 0.78); line-height: 1.6; font-size: 15px; }
+      .perk-list { list-style: none; margin: 18px 0 26px; padding: 0; display: grid; gap: 10px; }
+      .perk-list li { display: flex; gap: 10px; align-items: center; color: var(--text); font-size: 15px; }
+      .perk-list li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex: none; }
+      #paypal-buttons { min-height: 52px; margin-top: 8px; }
+      .pay-note { margin-top: 16px; font-size: 13px; color: var(--muted); }
+      .back-link { display: inline-block; margin-top: 26px; color: var(--muted); font-weight: 600; font-size: 14px; }
+      .back-link:hover { color: var(--gold); }
+
+      .status-msg { margin-top: 16px; padding: 12px 14px; border-radius: var(--radius-md); font-size: 14px; display: none; }
+      .status-msg.error { display: block; background: rgba(255, 48, 69, 0.12); border: 1px solid var(--danger); color: var(--danger); }
+      .status-msg.info { display: block; background: rgba(39, 168, 255, 0.12); border: 1px solid var(--blue); color: var(--blue); }
+
+      .success-view { display: none; }
+      .success-view.is-active { display: block; }
+      .buy-view.is-hidden { display: none; }
+      .success-view h1 { color: var(--kick); }
+      .key-box {
+        margin: 18px 0 8px;
+        padding: 14px;
+        border: 1px solid rgba(214, 162, 58, 0.4);
+        border-radius: var(--radius-md);
+        background: rgba(11, 11, 13, 0.6);
+        font-family: ui-monospace, Consolas, monospace;
+        font-size: 14px;
+        color: var(--gold);
+        word-break: break-all;
+      }
+      .copy-btn {
+        margin-top: 10px;
+        min-height: 40px;
+        padding: 0 16px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(214, 162, 58, 0.72);
+        background: linear-gradient(180deg, #e5b44b 0%, #b97b20 100%);
+        color: #08090b;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .steps { margin: 20px 0 0; padding-left: 18px; color: rgba(242, 242, 242, 0.8); line-height: 1.7; font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <canvas id="signal-canvas" aria-hidden="true"></canvas>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="./index.html#top" aria-label="VaultStudio home">
+        <img src="./assets/vaultstudio-logo.png" alt="" />
+        <span>VaultStudio</span>
+      </a>
+      <a class="header-cta" href="./index.html#download">Download for Windows</a>
+    </header>
+
+    <main class="checkout">
+      <div class="checkout-card buy-view" id="buy-view">
+        <h1>Lifetime Pro</h1>
+        <div class="price-line"><strong>$19.99</strong><span>USD - one-time</span></div>
+        <p>No subscription. Pay once and unlock unlimited stream targets and dashboard
+           platforms. Your license key is shown here after PayPal confirms payment.</p>
+        <ul class="perk-list">
+          <li>Unlimited stream targets</li>
+          <li>Unlimited dashboard platforms</li>
+          <li>All future updates included</li>
+        </ul>
+        <div id="paypal-buttons"></div>
+        <div class="status-msg" id="status-msg"></div>
+        <p class="pay-note">Secure checkout via PayPal.</p>
+        <a class="back-link" href="./index.html">&larr; Back to VaultStudio</a>
+      </div>
+
+      <div class="checkout-card success-view" id="success-view">
+        <h1>Payment complete</h1>
+        <p id="success-sub">Here is your VaultStudio Lifetime Pro key.</p>
+        <div class="key-box" id="key-box"></div>
+        <button class="copy-btn" id="copy-btn" type="button">Copy key</button>
+        <ol class="steps">
+          <li>Open VaultStudio and go to <strong>Settings > Pro License</strong>.</li>
+          <li>Paste the full key above (including the part after the dot).</li>
+          <li>Click <strong>Activate</strong>. You're now on Lifetime Pro.</li>
+        </ol>
+        <a class="back-link" href="./index.html">&larr; Back to VaultStudio</a>
+      </div>
+    </main>
+
+    <script src="./payments-config.js"></script>
+    <script src="./buy.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

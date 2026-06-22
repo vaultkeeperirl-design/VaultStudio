@@ -1,0 +1,30 @@
+cmake_minimum_required(VERSION 3.22)
+project(VaultStudioOBS LANGUAGES C CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_C_STANDARD 11)
+
+set(OBS_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../vendor/obs-studio")
+
+# Build only libobs core — skip UI, plugins, browser source for now
+set(BUILD_BROWSER OFF CACHE BOOL "" FORCE)
+set(BUILD_CAPTIONS OFF CACHE BOOL "" FORCE)
+set(ENABLE_UI OFF CACHE BOOL "" FORCE)
+set(ENABLE_PLUGINS OFF CACHE BOOL "" FORCE)
+set(ENABLE_SCRIPTING OFF CACHE BOOL "" FORCE)
+set(ENABLE_WAYLAND OFF CACHE BOOL "" FORCE)
+set(ENABLE_PIPEWIRE OFF CACHE BOOL "" FORCE)
+
+add_subdirectory("${OBS_SRC_DIR}/libobs" "${CMAKE_BINARY_DIR}/libobs")
+
+# Install headers and library to a known location
+install(TARGETS libobs
+  ARCHIVE DESTINATION "${CMAKE_CURRENT_SOURCE_DIR}/dist/lib"
+  RUNTIME DESTINATION "${CMAKE_CURRENT_SOURCE_DIR}/dist/bin"
+  LIBRARY DESTINATION "${CMAKE_CURRENT_SOURCE_DIR}/dist/lib"
+)
+
+install(DIRECTORY "${OBS_SRC_DIR}/libobs/"
+  DESTINATION "${CMAKE_CURRENT_SOURCE_DIR}/dist/include"
+  FILES_MATCHING PATTERN "*.h"
+)

@@ -1,0 +1,10 @@
+{
+  "name": "vault-streaming-studio-website",
+  "version": "1.5.1",
+  "private": true,
+  "description": "VaultStudio product download and Lifetime Pro checkout site.",
+  "scripts": {
+    "dev": "node ../node_modules/vite/bin/vite.js --host 127.0.0.1",
+    "preview": "node ../node_modules/vite/bin/vite.js --host 127.0.0.1"
+  }
+}

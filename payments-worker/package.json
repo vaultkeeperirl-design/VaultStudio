@@ -1,0 +1,16 @@
+{
+  "name": "vaultstudio-payments",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cloudflare Worker: verifies PayPal payments and atomically issues VaultStudio Pro keys.",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "upload-pool": "node scripts/upload-pool.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

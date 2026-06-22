@@ -1,0 +1,54 @@
+{
+  "name": "vaultstudio",
+  "version": "1.5.1",
+  "description": "Standalone streaming studio with native scene control, multi-platform chat, and unified stream stats",
+  "desktopName": "VaultStudio",
+  "author": {
+    "name": "Vaultkeeper",
+    "email": "vaultkeeperirl@gmail.com"
+  },
+  "homepage": "https://vaultkeeper.live",
+  "main": "dist-electron/main.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && tsc -p tsconfig.node.json",
+    "build:native": "cd native/addon && npx cmake-js compile --out build-v1",
+    "preview": "vite preview",
+    "electron:dev": "vite build && electron .",
+    "electron:build": "node scripts/patch-electron-builder-extract.mjs && npm run build && electron-builder",
+    "electron:build:win": "node scripts/assert-native-runtime.mjs --platform=win32 && node scripts/patch-electron-builder-extract.mjs && npm run build && electron-builder --win nsis",
+    "electron:build:linux": "node scripts/assert-native-runtime.mjs --platform=linux && node scripts/patch-electron-builder-extract.mjs && npm run build && electron-builder --linux AppImage deb",
+    "electron:build:mac": "node scripts/assert-native-runtime.mjs --platform=darwin && node scripts/patch-electron-builder-extract.mjs && npm run build && electron-builder --mac dmg zip",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "dependencies": {
+    "node-media-server": "^2.7.4",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-grid-layout": "^2.2.3",
+    "react-router-dom": "^7.17.0",
+    "styled-components": "^6.4.2",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/styled-components": "^5.1.36",
+    "@vitejs/plugin-react": "^6.0.2",
+    "cmake-js": "^7.3.0",
+    "electron": "^40.9.3",
+    "electron-builder": "^26.15.2",
+    "jsdom": "^29.1.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.8"
+  }
+}

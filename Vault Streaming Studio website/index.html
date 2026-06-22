@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Download VaultStudio 1.5.1. Stream to multiple platforms, read unified chat, run IRL phone ingest, and unlock unlimited targets with Lifetime Pro. Windows is available now; macOS and Linux installers will be linked after host-native VSS engine smoke tests pass."
+    />
+    <meta name="theme-color" content="#0B0B0D" />
+    <title>VaultStudio - Multi-Platform Streaming Studio</title>
+    <link rel="preload" href="./assets/vaultstudio-logo.png" as="image" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="signal-canvas" aria-hidden="true"></canvas>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="VaultStudio home">
+        <img src="./assets/vaultstudio-logo.png" alt="" />
+        <span>VaultStudio</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#product">Product</a>
+        <a href="#features">Features</a>
+        <a href="#irl">IRL</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#download">Download</a>
+      </nav>
+      <a class="header-cta" href="./downloads/VaultStudio%20Setup%201.5.1.exe" download>
+        Download for Windows
+      </a>
+    </header>
+
+    <main>
+      <section class="hero section-band" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <h1 id="hero-title">VaultStudio</h1>
+          <p class="hero-line">Go live everywhere from one Windows studio.</p>
+          <p class="hero-text">
+            VaultStudio brings scene control, multi-platform chat, combined viewer stats,
+            stream targets, and phone IRL ingest into one standalone workspace. Start free
+            with 3 targets and 3 dashboard platforms. Upgrade once when you need unlimited.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="./downloads/VaultStudio%20Setup%201.5.1.exe" download>
+              <span class="windows-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+              Download VaultStudio Free
+            </a>
+            <a class="secondary-action" href="./buy.html">Get Lifetime Pro</a>
+          </div>
+          <p class="release-note">
+            VaultStudio 1.5.1 Windows installer is available now. macOS and Linux
+            installers will be linked after their host-native VSS engine smoke tests pass.
+            No subscription: Lifetime Pro is a one-time $19.99 USD upgrade for unlimited
+            stream targets and dashboards.
+          </p>
+        </div>
+
+        <div class="hero-stage reveal" id="hero-stage">
+          <div class="signal-ribbon ribbon-one" aria-hidden="true"></div>
+          <div class="signal-ribbon ribbon-two" aria-hidden="true"></div>
+          <div class="studio-window" aria-label="VaultStudio app interface preview">
+            <div class="studio-topbar">
+              <div class="studio-brand">
+                <img src="./assets/vaultstudio-logo.png" alt="" />
+                <strong>VaultStudio</strong>
+              </div>
+              <div class="studio-controls">
+                <span class="guard-chip">Protected</span>
+                <span class="live-time">02:18:42</span>
+                <button class="danger-button" type="button">Stop Stream</button>
+                <button class="secondary-button" type="button">Record</button>
+                <button class="toggle-button is-active" type="button">Replay</button>
+                <button class="toggle-button" type="button">VCam</button>
+                <button class="secondary-button" type="button">Targets</button>
+                <button class="secondary-button" type="button">Reset Layout</button>
+              </div>
+            </div>
+
+            <div class="studio-grid">
+              <article class="panel session-panel">
+                <div class="panel-header">Session</div>
+                <div class="panel-body">
+                  <div class="status-badge">Live</div>
+                  <div class="viewer-total">
+                    <strong data-count="1842">1,842</strong>
+                    <span>Combined Viewers</span>
+                  </div>
+                  <div class="platform-row">
+                    <span class="platform-badge twitch">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.3 1L1.5 5.7v15.8h5.4V24h3l2.7-2.5h4.2L22.5 16V1H4.3zm16.2 14.1l-3.3 3h-5.1l-2.7 2.5v-2.5H5.1V3h15.4v12.1zM17 6.8v5.7h-2V6.8h2zm-5.4 0v5.7h-2V6.8h2z" /></svg>
+                      Twitch
+                    </span>
+                    <span>821</span>
+                  </div>
+                  <div class="platform-row">
+                    <span class="platform-badge kick">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2h7v6l4-4h7l-7 8 7 8h-7l-4-4v6H3V2z" /></svg>
+                      Kick
+                    </span>
+                    <span>604</span>
+                  </div>
+                  <div class="platform-row">
+                    <span class="platform-badge youtube">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z" /></svg>
+                      YouTube
+                    </span>
+                    <span>309</span>
+                  </div>
+                  <div class="platform-row">
+                    <span class="platform-badge tiktok">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" /></svg>
+                      TikTok
+                    </span>
+                    <span>108</span>
+                  </div>
+                  <div class="stat-line"><span>Bitrate</span><strong>6,000 kbps</strong></div>
+                  <div class="stat-line"><span>Dropped Frames</span><strong>0.1%</strong></div>
+                </div>
+              </article>
+
+              <article class="panel preview-panel">
+                <div class="panel-header">Preview</div>
+                <div class="panel-body preview-canvas">
+                  <div class="preview-live"><span></span>LIVE</div>
+                  <div class="preview-mode">Realtime</div>
+                  <div class="game-feed">
+                    <div class="horizon"></div>
+                    <div class="track-grid"></div>
+                    <div class="camera-frame">IRL CAM</div>
+                    <div class="alert-stack">Follower goal: 82%</div>
+                  </div>
+                  <div class="source-box">
+                    <span>Locked - Facecam</span>
+                    <i></i><i></i><i></i><i></i>
+                  </div>
+                </div>
+              </article>
+
+              <article class="panel activity-panel">
+                <div class="panel-header">Activity</div>
+                <div class="panel-body activity-list">
+                  <p><span class="dot kick-dot"></span><strong>mysticlloyd</strong> reached 3-stream streak</p>
+                  <p><span class="dot twitch-dot"></span><strong>half_asleep</strong> cheered 80 bits</p>
+                  <p><span class="dot youtube-dot"></span><strong>newviewer42</strong> subscribed</p>
+                  <p><span class="dot tiktok-dot"></span><strong>nightowl</strong> sent a gift</p>
+                </div>
+              </article>
+
+              <article class="panel chat-panel">
+                <div class="panel-header">Chat</div>
+                <div class="panel-body chat-list">
+                  <div class="chat-tabs"><button>All</button><button>Twitch</button><button>Kick</button><button>YouTube</button></div>
+                  <p><span class="mini-badge twitch"></span><strong style="color:#ff744f">Mysticlloyd</strong> clean switch</p>
+                  <p><span class="mini-badge kick"></span><strong>KiwiDanja</strong> that's pretty cool</p>
+                  <p><span class="mini-badge youtube"></span><strong>StreamFan99</strong> audio is perfect</p>
+                  <p><span class="mini-badge tiktok"></span><strong>NightOwl</strong> just joined, whats the game?</p>
+                  <div class="chat-input"><span>Send to: All Platforms</span><em>Type a message...</em><button>Send</button></div>
+                </div>
+              </article>
+
+              <article class="panel scenes-panel">
+                <div class="panel-header">Scenes</div>
+                <div class="panel-body list-panel">
+                  <button class="active-row">Main Scene</button>
+                  <button>IRL Phone Feed</button>
+                  <button>BRB Screen</button>
+                  <button>Starting Soon</button>
+                </div>
+              </article>
+
+              <article class="panel sources-panel">
+                <div class="panel-header">Sources</div>
+                <div class="panel-body list-panel">
+                  <button>Game Capture</button>
+                  <button class="active-row">Facecam</button>
+                  <button>Alerts</button>
+                  <button>IRL RTMP Media</button>
+                </div>
+              </article>
+
+              <article class="panel audio-panel">
+                <div class="panel-header">Audio</div>
+                <div class="panel-body audio-list">
+                  <div><span>Microphone</span><i style="--level: 82%"></i></div>
+                  <div><span>Desktop Audio</span><i style="--level: 54%"></i></div>
+                  <div><span>IRL Feed</span><i style="--level: 67%"></i></div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="Product highlights">
+        <div><strong>3</strong><span>stream targets free forever</span></div>
+        <div><strong>3</strong><span>dashboard platforms included</span></div>
+        <div><strong>$19.99</strong><span>one-time Lifetime Pro upgrade</span></div>
+        <div><strong>RTMP</strong><span>built-in phone ingest for IRL</span></div>
+      </section>
+
+      <section class="product-section section-band" id="product">
+        <div class="section-copy reveal">
+          <h2>A full streaming studio, not another browser tab.</h2>
+          <p>
+            VaultStudio opens into the control room: scenes, sources, preview editing,
+            audio meters, stream targets, activity, and chat in one resizable workspace.
+            It is built for creators who want to run the show without juggling five windows.
+          </p>
+        </div>
+        <div class="comparison-rail reveal">
+          <div class="comparison-row">
+            <span>Classic setup</span>
+            <p>Separate studio window, chat popouts, viewer tabs, phone ingest tool, and health checks.</p>
+          </div>
+          <div class="comparison-row is-vault">
+            <span>VaultStudio</span>
+            <p>Streaming engine, chat, platform stats, IRL ingest, guard states, and layout control in one app.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="features-section" id="features">
+        <div class="feature-heading reveal">
+          <h2>Made for creators who stream in more than one place.</h2>
+          <p>
+            Download free, connect the platforms you already use, and keep chat, viewers,
+            targets, and signal health visible while you are live. Lifetime Pro removes
+            limits when your setup grows.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon combined-icon" aria-hidden="true"></div>
+            <h3>Know the real audience</h3>
+            <p>Combine viewer counts across platforms while keeping each channel's status visible at a glance.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon chat-icon" aria-hidden="true"></div>
+            <h3>Read chat once</h3>
+            <p>Bring messages from your platforms into one feed, filter by channel, and respond without losing the room.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon layout-icon" aria-hidden="true"></div>
+            <h3>Make the control room yours</h3>
+            <p>Resize and move panels for production, chat-heavy, or IRL workflows, then reset the layout instantly.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon guard-icon" aria-hidden="true"></div>
+            <h3>Keep the stream protected</h3>
+            <p>BRB switching, reconnect tracking, replay buffer, recording, and virtual camera controls stay close.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="irl-section section-band" id="irl">
+        <div class="irl-copy reveal">
+          <h2>Go IRL without adding another ingest app.</h2>
+          <p>
+            Point Moblin, IRL Pro, Larix, or any mobile RTMP app at VaultStudio on your LAN.
+            VaultStudio accepts the feed, exposes it as a scene source, watches bitrate, and can
+            switch to BRB when the signal drops.
+          </p>
+          <ul class="check-list">
+            <li>Local RTMP ingest URL generated in-app</li>
+            <li>Single publisher handoff for reconnecting phone feeds</li>
+            <li>Low-bitrate detection with automatic BRB and recovery</li>
+          </ul>
+        </div>
+        <div class="irl-terminal reveal" aria-label="IRL ingest status mockup">
+          <div class="terminal-header"><span></span><span></span><span></span></div>
+          <code>IRL server listening on port 1935</code>
+          <code>rtmp://192.168.0.22:1935/live/a7f4c91d</code>
+          <code class="ok">Phone feed connected - bitrate 4,820 kbps</code>
+          <code class="warn">Signal low - switched to BRB scene</code>
+          <code class="ok">Feed recovered - back to live scene</code>
+        </div>
+      </section>
+
+      <section class="pricing-section section-band" id="pricing">
+        <div class="pricing-heading reveal">
+          <h2>Start free. Upgrade only when you outgrow it.</h2>
+          <p>Free is enough to run a real multi-platform stream. Lifetime Pro is for creators
+             who want unlimited stream targets and unlimited dashboard platforms with one key.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card reveal">
+            <span class="price-tier">Free</span>
+            <div class="price-amount"><strong>$0</strong></div>
+            <ul class="price-perks">
+              <li>3 stream targets included</li>
+              <li>3 dashboard platforms included</li>
+              <li>Unified chat, scenes, sources, and IRL ingest</li>
+            </ul>
+            <a class="secondary-action" href="#download">Download free</a>
+          </article>
+          <article class="price-card is-pro reveal">
+            <span class="price-tier">Lifetime Pro</span>
+            <div class="price-amount"><strong>$19.99</strong><span>USD - one-time</span></div>
+            <ul class="price-perks">
+              <li>Unlimited stream targets</li>
+              <li>Unlimited dashboard platforms</li>
+              <li>All future updates; key shown instantly after checkout</li>
+            </ul>
+            <a class="primary-action" href="./buy.html">Buy Lifetime Pro</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="download-section" id="download">
+        <div class="download-panel reveal">
+          <img src="./assets/vaultstudio-logo.png" alt="" />
+          <h2>Download VaultStudio.</h2>
+          <p>
+            Install the studio, start the managed streaming engine, connect your first
+            stream targets, and go live from one workspace. No account required to try it.
+            Lifetime Pro can be activated later from Settings.
+          </p>
+          <div class="download-actions">
+            <a class="primary-action" href="./downloads/VaultStudio%20Setup%201.5.1.exe" download>
+              <span class="windows-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+              Download for Windows
+            </a>
+            <span class="installer-note">VaultStudio Setup 1.5.1.exe</span>
+          </div>
+          <ul class="platform-list">
+            <li>
+              <a href="./downloads/VaultStudio%20Setup%201.5.1.exe" download>
+                <span class="os">Windows</span><span class="soon">NSIS installer</span>
+              </a>
+            </li>
+            <li>
+              <span class="platform-disabled" aria-disabled="true">
+                <span class="os">macOS</span><span class="soon">Native build pending</span>
+              </span>
+            </li>
+            <li>
+              <span class="platform-disabled" aria-disabled="true">
+                <span class="os">Linux</span><span class="soon">Native build pending</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="#top" aria-label="VaultStudio home">
+        <img src="./assets/vaultstudio-logo.png" alt="" />
+        <span>VaultStudio</span>
+      </a>
+      <span>Standalone streaming studio for multi-platform creators.</span>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

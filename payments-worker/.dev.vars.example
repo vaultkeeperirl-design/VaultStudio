@@ -1,0 +1,11 @@
+# Copy to `.dev.vars` for local `wrangler dev`. Never commit `.dev.vars`.
+# In production these go in [vars] (non-secret) or `wrangler secret put` (secret).
+PAYPAL_ENV=sandbox
+PAYPAL_CLIENT_ID=your_sandbox_client_id
+PAYPAL_SECRET=your_sandbox_secret
+PAYPAL_WEBHOOK_ID=your_webhook_id
+RESEND_API_KEY=your_resend_api_key
+EMAIL_FROM=VaultStudio <keys@yourdomain.com>
+ALLOWED_ORIGIN=http://localhost:5173
+PRICE_USD=19.99
+ADMIN_EMAIL=vaultkeeperirl@gmail.com
